@@ -20,8 +20,14 @@ except ValueError:
 
 # 거듭 제곱 계산 로직 (입력값 만큼 지수 반복문 설정)
 result = 1
-for _ in range(exponent):
-    result = result * number
+if exponent >= 0:
+    for _ in range(exponent):
+        result = result * number
+else:  #>=0 제외 
+    for _ in range(-exponent):
+        result = result * number
+    result = 1 / result #음수 처리 연산식 
+
 
 print(f"Result: {int(result) if result.is_integer() else result}")
 #수의 형태의 따라 노출되도록 설정 
