@@ -21,7 +21,7 @@ def main():
 
 #입력 검증: 수의 연산 성립 
     if len(tokens) < 3 or len(tokens) % 2 == 0: #숫자, 연산자, 숫자를 필수적으로 입력해야 수식이 완성됨으로 invalid 처리 (짝수 불가)
-        print("invalid input.")                     # 나머지 연산자(%) / 단어의 개수가 3개보다 작거나(or) 단어의 개수가 짝수
+        print("invalid input.")                     # 나머지 연산자(%) / 어의 개수가 3개보다 작거나(or) 단어의 개수가 짝수
         return                                                    # ㄴ 3<3도 flase이기에, <3이 true가 되면 그냥 바로 종료하고 옆으로 3이 넘어가도 0이 아님으로 flase 즉, 오류 아님(성립)
      
     numbers = []
@@ -30,9 +30,9 @@ def main():
         for i, token in enumerate(tokens): #작동 / tokens를 번호 매겨서 나온 것을, i와 token에 각각 담아 반복
 
             if i % 2 == 0: #수와 연산의 순서(숫자, 연산 ---)식으로 원활한 연산식이 되는지 검증
-                numbers.append(float(tokens)) # 여기선 i가 enumerate로 인해 번호표 역할을 함.
+                numbers.append(float(token)) # 여기선 i가 enumerate로 인해 번호표 역할을 함.
             else:
-                if token not in [] ['+', '-', '*', '/']:  # 분리된 리스트(numbers & operators)로 안전하게 재분배
+                if token not in ['+', '-', '*', '/']:  # 분리된 리스트(numbers & operators)로 안전하게 재분배
                     print("Invalid input.")                 #ㄴtoken에 할당된 연산자 값이 -연산 리스트와 비교했을 때 포함되었지않은가.
                     return
                 operators.append(token) #연산자 값이 연산 리스트와 비교했을 때 존재하지 않는다면, op(연산통)에 삽입.
